@@ -34,7 +34,7 @@ public class ErrorValidationsTest extends BaseTest {
 		String productName = "ZARA COAT 3";
 		LandingPage landingPage = lunchApplication();
 		ProductCatalogue productCatalogue = landingPage.loginApplication("himass687@gmail.com", "Masthan786@");
-		System.out.println("I am going to to hhandle dirrrent test cases");
+		System.out.println("I am shaik");
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 		CartPage cartPage = productCatalogue.goToCartPage();
