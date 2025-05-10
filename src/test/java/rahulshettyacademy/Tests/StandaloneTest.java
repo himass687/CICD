@@ -59,7 +59,7 @@ public class StandaloneTest {
 		
 		String confirmMessage=driver.findElement(By.cssSelector(".hero-primary")).getText();
 		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-		
+		System.out.println("Suceesfully executed all the script");
 		driver.close();//WE ARE USING THIS LINE TWO WE ARE GETTING THE WEBSOCKET EXCPETION
 
 	}
