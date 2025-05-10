@@ -7,7 +7,7 @@ Feature: Error Validation
   @ErrorValidation
   Scenario Outline: Login Error Validation
     Given I landed on E-commerce page
-    When Logged in with userName "<name>" and password "<password>"
+    When Logged in with userName <name> and password <password>
     Then "Incorrect email or password.?" message is displayed
     
    Examples:
