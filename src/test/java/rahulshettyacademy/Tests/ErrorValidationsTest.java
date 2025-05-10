@@ -38,7 +38,7 @@ public class ErrorValidationsTest extends BaseTest {
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 		CartPage cartPage = productCatalogue.goToCartPage();
-
+		System.out.println("I am going to to hhandle dirrrent test cases");
 		Boolean match = cartPage.verifyProductDisplay("ZARA COAT 33");
 		Assert.assertFalse(match);
 		
