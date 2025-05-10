@@ -19,11 +19,8 @@ public class ErrorValidationsTest extends BaseTest {
 	
 	@Test(groups= {"ErrorVaidation"},retryAnalyzer =Retry.class)
 	public void loginErrorValidation() throws IOException {
-		System.out.println("hi i am shaik");
 		LandingPage landingPage = lunchApplication();
-		System.out.println("this method is belogs to error validation method");
 		landingPage.loginApplication("himass68@gmail.com", "@Masthan786@");
-		System.out.println("I am going to to hhandle dirrrent test cases");
 		Assert.assertEquals("Incorrect email or password.?", landingPage.getErrorMessage());	
 
 	}
@@ -38,7 +35,6 @@ public class ErrorValidationsTest extends BaseTest {
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 		CartPage cartPage = productCatalogue.goToCartPage();
-		System.out.println("I am going to to hhandle dirrrent test cases");
 		Boolean match = cartPage.verifyProductDisplay("ZARA COAT 33");
 		Assert.assertFalse(match);
 		

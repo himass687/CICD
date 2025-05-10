@@ -58,7 +58,6 @@ public class SubmitOrderTest extends BaseTest {
 		String filePath =System.getProperty("user.dir")
 				+ "\\src\\test\\java\\rahulshettyacademy\\Data\\PurchaseOrder.json";
 		List<HashMap<String, String>> data= getJsonDataToMap(filePath);
-	System.out.println("Hi this is one of the get data from the jsond file");
 		return new Object[][] {{data.get(0)},{data.get(1)}};
 		
 //		HashMap<String, String> map = new HashMap<String, String>();
