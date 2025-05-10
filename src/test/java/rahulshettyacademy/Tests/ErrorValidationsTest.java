@@ -19,7 +19,7 @@ public class ErrorValidationsTest extends BaseTest {
 	
 	@Test(groups= {"ErrorVaidation"},retryAnalyzer =Retry.class)
 	public void loginErrorValidation() throws IOException {
-
+		System.out.println("hi i am shaik");
 		LandingPage landingPage = lunchApplication();
 		System.out.println("this method is belogs to error validation method");
 		landingPage.loginApplication("himass68@gmail.com", "@Masthan786@");
