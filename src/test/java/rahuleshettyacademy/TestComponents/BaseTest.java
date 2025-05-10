@@ -82,8 +82,13 @@ public class BaseTest {
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 	    if (driver != null) {
-	        driver.quit(); // Closes all browsers
-	        driver = null; // Reset instance
+	        driver.quit();
+	        driver = null;
+	    }
+	    try {
+	        Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe");
+	    } catch (IOException e) {
+	        System.out.println("Failed to close ChromeDriver process.");
 	    }
 	}
 
