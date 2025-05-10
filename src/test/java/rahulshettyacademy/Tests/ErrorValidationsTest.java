@@ -23,6 +23,7 @@ public class ErrorValidationsTest extends BaseTest {
 		LandingPage landingPage = lunchApplication();
 		System.out.println("this method is belogs to error validation method");
 		landingPage.loginApplication("himass68@gmail.com", "@Masthan786@");
+		System.out.println("I am going to to hhandle dirrrent test cases");
 		Assert.assertEquals("Incorrect email or password.?", landingPage.getErrorMessage());	
 
 	}
