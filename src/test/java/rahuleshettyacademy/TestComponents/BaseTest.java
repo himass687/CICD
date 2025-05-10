@@ -38,8 +38,9 @@ public class BaseTest {
 			FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
 					+ "\\src\\main\\java\\rahulshettyacademy\\resources\\Globaldata.properties");
 			prop.load(fis);
+			String browserName = System.getProperty("browser", prop.getProperty("browser", "chrome")); 
 
-			String browserName = System.getProperty("browser", prop.getProperty("browser")); // Load browser name
+			//String browserName = System.getProperty("browser", prop.getProperty("browser")); // Load browser name
 
 			if (browserName.equalsIgnoreCase("chrome") || browserName.equalsIgnoreCase("chromeheadless")) {
 				ChromeOptions options = new ChromeOptions();
@@ -47,7 +48,8 @@ public class BaseTest {
 				WebDriverManager.chromedriver().setup();
 				if (browserName.contains("headless")) {
 
-					options.addArguments("headless");
+					//options.addArguments("headless");
+					options.addArguments("--headless", "--disable-gpu", "--no-sandbox");
 
 				}
 				driver = new ChromeDriver(options);
