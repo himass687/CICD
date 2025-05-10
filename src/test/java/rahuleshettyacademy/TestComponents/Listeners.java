@@ -31,27 +31,27 @@ public class Listeners extends BaseTest implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		//test.fail(result.getThrowable());
-		extentTest.get().fail(result.getThrowable());
-		
-		try {
-			driver=(WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		String filePath = null;
-		try {
-			filePath =getScreenshot(result.getMethod().getMethodName(),driver);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//test.addScreenCaptureFromPath(filePath,result.getMethod().getMethodName());
-		extentTest.get().addScreenCaptureFromPath(filePath,result.getMethod().getMethodName());
-		
+	    extentTest.get().fail(result.getThrowable());
+
+	    try {
+	        if (result.getInstance() instanceof BaseTest) {
+	            driver = ((BaseTest) result.getInstance()).driver;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    if (driver != null) { // Ensure WebDriver is active before taking a screenshot
+	        String filePath = null;
+	        try {
+	            filePath = getScreenshot(result.getMethod().getMethodName(), driver);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	        extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+	    } else {
+	        extentTest.get().info("Skipping screenshot capture as WebDriver is null.");
+	    }
 	}
 
 	@Override
