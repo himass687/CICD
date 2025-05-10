@@ -81,11 +81,10 @@ public class BaseTest {
 
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
-		if (driver != null) {
-			driver.quit(); // Closes all browsers
-			driver = null; // Reset instance
-		}
-
+	    if (driver != null) {
+	        driver.quit(); // Closes all browsers
+	        driver = null; // Reset instance
+	    }
 	}
 
 	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
@@ -101,14 +100,13 @@ public class BaseTest {
 	}
 
 	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
-		FileUtils.copyFile(source, file);
-
-		return testCaseName;
-
+	    if (driver == null) {
+	        throw new IllegalStateException("WebDriver is already closed, cannot take screenshot");
+	    }
+	    TakesScreenshot ts = (TakesScreenshot) driver;
+	    File source = ts.getScreenshotAs(OutputType.FILE);
+	    File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+	    FileUtils.copyFile(source, file);
+	    return testCaseName;
 	}
-
 }
