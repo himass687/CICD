@@ -57,11 +57,12 @@ public class StepDefinitionImplementation extends BaseTest {
         Assert.assertTrue(confirmMessage.equalsIgnoreCase(message));
         driver.close();
     }
-    @Then("\"Incorrect email or password.?\" message is displayed")
+    @Then("\"Incorrect email or password.\" message is displayed")
     public void incorrect_email_or_password_message_is_displayed() {
     	confirmationPage = new ConfirmationPage(driver); // Ensure it's initialized
     	String confirmMessage = confirmationPage.getConfirmMessage();
-		Assert.assertTrue(confirmMessage.equalsIgnoreCase("Incorrect email or password.?"));
+		Assert.assertTrue(confirmMessage.equalsIgnoreCase("Incorrect email or password."));
+		
 		driver.close();
     }
 }
