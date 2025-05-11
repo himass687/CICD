@@ -45,7 +45,8 @@ public class BaseTest {
 			if (browserName.equalsIgnoreCase("chrome") || browserName.equalsIgnoreCase("chromeheadless")) {
 				ChromeOptions options = new ChromeOptions();
 
-				WebDriverManager.chromedriver().setup();
+				//WebDriverManager.chromedriver().setup();
+				WebDriverManager.chromedriver().browserVersion("136").setup();
 				if (browserName.contains("headless")) {
 
 					//options.addArguments("headless");

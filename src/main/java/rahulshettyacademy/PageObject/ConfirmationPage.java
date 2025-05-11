@@ -15,9 +15,8 @@ public class ConfirmationPage extends AbstractComponent {
 	WebDriver driver;
 	
 	public ConfirmationPage(WebDriver driver) {
-		// TODO Auto-generated constructor stub
 		super(driver);
-		this.driver= driver;
+		//this.driver= driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -29,8 +28,14 @@ public class ConfirmationPage extends AbstractComponent {
 	
 	public String getConfirmMessage() {
 		waitForElementToAppear(confmessVisibility);
-		return confirmMessage.getText();
+	    if (confirmMessage.isDisplayed()) {
+	        return confirmMessage.getText();
+	    } else {
+	        throw new RuntimeException("Confirmation message is not visible.");
+	    }
 	}
+
+	
 	
 
 }
