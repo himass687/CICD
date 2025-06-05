@@ -62,7 +62,6 @@ public class StepDefinitionImplementation extends BaseTest {
     	confirmationPage = new ConfirmationPage(driver); // Ensure it's initialized
     	String confirmMessage = confirmationPage.getConfirmMessage();
 		Assert.assertTrue(confirmMessage.equalsIgnoreCase("Incorrect email or password."));
-		
 		driver.close();
     }
 }

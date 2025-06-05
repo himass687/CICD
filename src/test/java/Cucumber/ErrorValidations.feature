@@ -8,7 +8,7 @@ Feature: Error Validation
   Scenario Outline: Login Error Validation
     Given I landed on E-commerce page
     When Logged in with userName <name> and password <password>
-    Then "Incorrect email or password.?" message is displayed
+    Then "Incorrect email or password." message is displayed
     
    Examples:
     | name                 | password    |
